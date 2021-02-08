@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:eliteElements="clr-namespace:eliteKit.eliteElements;assembly=eliteKit"
+             mc:Ignorable="d"
+             x:Class="eliteKitDevelopment.appPages.eliteVideo.eliteVideoPopup">
+
+
+    <eliteElements:eliteGradientView
+        Color1="Red"
+        Color2="BlueViolet"
+        Color3="Blue"
+        Color4="Green"
+        GradientType="Sweep"
+        GradientAnimationEnabled="True"
+        CustomTransitionSpeed="0.00001"
+        TileMode="Clamp"
+        >
+        <eliteElements:eliteGradientView.ContentView>
+            <!--Shadow customization only available for iOS. Android only allows to add a single shadow through Elevation property; Only Api >= 21-->
+            <!--ALWAYS set VideoProvider first and then VideoSource-->
+            <!--ALWAYS if using Videos property, don't set VideoSource property, instead include that source in Videos playlist-->
+            <eliteElements:eliteVideo x:Name="videoPlayer"    
+                              CornerRounded="all"
+                              CornerRadius="11"
+                              IsPopup="True"
+                              WidthRequest="250" 
+                              HeightRequest="200" 
+                              ShadowColor="Red"
+                              ShadowOpacity="0.8"
+                              ShadowRadius="3"
+                              ShadowVerticalOffset="1"
+                              ShadowHorizontalOffset="1"
+                              BorderColor="Transparent"
+                              BorderThickness="2"
+                              Autoplay="False"
+                              IsLoopEnabled="False"
+                              ShowFullScreenButton="False"
+                              CurrentVideoPreferredQuality="Low"
+                              SeekSeconds="60"/>
+        </eliteElements:eliteGradientView.ContentView>
+    </eliteElements:eliteGradientView>
+</ContentPage>

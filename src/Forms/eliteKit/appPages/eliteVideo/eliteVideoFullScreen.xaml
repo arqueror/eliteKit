@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:eliteElements="clr-namespace:eliteKit.eliteElements;assembly=eliteKit"
+             mc:Ignorable="d"
+             x:Class="eliteKitDevelopment.appPages.eliteVideo.eliteVideoFullScreen">
+    <ContentPage.Content>
+        <!--Fullscreen is single video oriented... Once video finish playback Source needs to be set manually/with IsLoopEnabled prop-->
+        <StackLayout Orientation="Vertical">
+            <eliteElements:eliteVideo
+                VideoProvider="Vimeo"
+                VideoSource="76311230"
+                Autoplay="True"
+                IsLoopEnabled="True"
+                VerticalOptions="FillAndExpand"
+                HorizontalOptions="FillAndExpand"
+                IsFullScreen="True"
+                CornerRounded="none"
+                
+            ></eliteElements:eliteVideo>
+
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>
