@@ -19,4 +19,5 @@ Under MIT (see license file)
 Please submit bugs, features and send PR's. If you want to go further you can buy me a coffee using the link below and check my other repos.
 
 <a href="https://www.buymeacoffee.com/jOUwyzl" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/purple_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
+
 **Happy coding! :sparkles: :camel: :boom:**
