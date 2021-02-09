@@ -12,10 +12,10 @@ namespace eliteKit.eliteElements
         private AbsoluteLayout absoluteLayout;
         private eliteBadgeIcon badgeIcon;
 
-        public static readonly BindableProperty FontSizeProperty = BindableProperty.Create(nameof(FontSize), typeof(float), typeof(eliteBadge), 34f, propertyChanged: (bindableObject, oldValue, value) =>
+        public static readonly BindableProperty FontSizeProperty = BindableProperty.Create(nameof(FontSize), typeof(float), typeof(eliteBadge), 10f, propertyChanged: (bindableObject, oldValue, value) =>
         {
             if (value != null)
-                ((eliteBadge)bindableObject).badgeIcon.FontSize = (float)value;
+                ((eliteBadge)bindableObject).badgeIcon.FontSize = (float)value * (float)coreSettings.ScalingFactor;
         });
         public float FontSize
         {
@@ -74,7 +74,7 @@ namespace eliteKit.eliteElements
         public static readonly BindableProperty BadgeWidthProperty = BindableProperty.Create(nameof(BadgeWidth), typeof(int), typeof(eliteBadge), 25, BindingMode.TwoWay, propertyChanged: (bindableObject, oldValue, value) =>
         {
 
-            ((eliteBadge)bindableObject).badgeIcon.WidthRequest = (double)value;
+            ((eliteBadge)bindableObject).badgeIcon.WidthRequest = (int)value;
 
         });
         /// <summary>
@@ -97,7 +97,7 @@ namespace eliteKit.eliteElements
         {
 
             if (value != null)
-                ((eliteBadge)bindableObject).badgeIcon.HeightRequest = (double)value;
+                ((eliteBadge)bindableObject).badgeIcon.HeightRequest = (int)value;
 
         });
         /// <summary>
@@ -112,6 +112,28 @@ namespace eliteKit.eliteElements
             set
             {
                 SetValue(BadgeHeightProperty, value);
+            }
+        }
+
+        public static readonly BindableProperty BadgeRadiusProperty = BindableProperty.Create(nameof(BadgeRadius), typeof(float), typeof(eliteBadge), 25f, BindingMode.TwoWay, propertyChanged: (bindableObject, oldValue, value) =>
+        {
+
+            if (value != null)
+                ((eliteBadge)bindableObject).badgeIcon.BadgeRadius = (float)value;
+
+        });
+        /// <summary>
+        /// 
+        /// </summary>
+        public float BadgeRadius
+        {
+            get
+            {
+                return (float)GetValue(BadgeRadiusProperty);
+            }
+            set
+            {
+                SetValue(BadgeRadiusProperty, value);
             }
         }
 
@@ -248,6 +270,9 @@ namespace eliteKit.eliteElements
             this.absoluteLayout.Children.Add(this.badgeView, new Rectangle(0, 0, 1, 1), AbsoluteLayoutFlags.All);
             this.absoluteLayout.Children.Add(this.badgeIcon, new Rectangle(0, 0, 1, 1), AbsoluteLayoutFlags.All);
             this.Content = this.absoluteLayout;
+
+            this.VerticalOptions = LayoutOptions.Start;
+            this.HorizontalOptions = LayoutOptions.Center;
         }
     }
 
@@ -258,7 +283,22 @@ namespace eliteKit.eliteElements
 
         private Color colorBadge = Color.Red;
         private string contentBadge = "0";
-        private float fontSize = 34f;
+        private float fontSize = 10f * coreSettings.ScalingFactor;
+        private float badgeRadius = 25;
+
+        public float BadgeRadius
+        {
+            get
+            {
+                return this.badgeRadius;
+            }
+            set
+            {
+                this.badgeRadius = value;
+                this.InvalidateSurface();
+            }
+        }
+
         public float FontSize
         {
             get
@@ -313,7 +353,7 @@ namespace eliteKit.eliteElements
                 Color = this.colorBadge.ToSKColor()
             };
             SKRect rectBadge = new SKRect(0, 0, this.canvasWidth, this.canvasHeight);
-            SKRoundRect roundRectBadge = new SKRoundRect(rectBadge, 15, 15);
+            SKRoundRect roundRectBadge = new SKRoundRect(rectBadge, BadgeRadius, BadgeRadius);
             givenCanvas.DrawRoundRect(roundRectBadge, paintBadge);
 
             SKPaint paintBadgeText = new SKPaint()

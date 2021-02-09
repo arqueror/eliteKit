@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:eliteKit="clr-namespace:eliteKit.eliteElements;assembly=eliteKit"
+             x:Class="eliteKitDevelopment.appPages.eliteBadgeView">
+    <ContentPage.Content>
+
+        <ScrollView Orientation="Vertical">
+            <StackLayout Orientation="Vertical">
+                <StackLayout Orientation="Vertical" Spacing="0">
+
+                    <Label 
+                         HorizontalTextAlignment="Center"
+                         Text="eliteBadgeView"
+                         FontSize="12" 
+                         TextColor="Black"/>
+
+                    <eliteKit:eliteBadge
+                        BadgeWidth="20"
+                        BadgeHeight="20"
+                        ColorBadge="Pink"
+                        BadgeRadius="25"
+                        FontSize="15"
+                        BadgeDirection="Bottom"
+                        ContentBadge="2">
+                        <Image x:Name="badgeView"/>
+                    </eliteKit:eliteBadge>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+
+    </ContentPage.Content>
+</ContentPage>

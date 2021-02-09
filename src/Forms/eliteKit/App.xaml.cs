@@ -1,4 +1,5 @@
-﻿using eliteKitDevelopment.appPages.eliteVideo;
+﻿using eliteKitDevelopment.appPages;
+using eliteKitDevelopment.appPages.eliteVideo;
 using Xamarin.Forms;
 
 namespace eliteKitDevelopment
@@ -9,7 +10,7 @@ namespace eliteKitDevelopment
         {
             InitializeComponent();
 
-            MainPage = new eliteVideoPopup();
+            MainPage = new eliteBadgeView();
         }
 
         protected override void OnStart()

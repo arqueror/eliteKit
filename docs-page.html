@@ -88,10 +88,9 @@
 					<li class="nav-item"><a class="nav-link scrollto" href="#item-2-2">Installation</a></li>
 					<li class="nav-item"><a class="nav-link scrollto" href="#item-2-3">Experimental Features</a></li>
 					<li class="nav-item"><a class="nav-link scrollto" href="#item-2-4">What's Next?</a></li>
-				    <li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-3"><span class="theme-icon-holder mr-2"><i class="fas fa-box"></i></span>APIs</a></li>
-				    <li class="nav-item"><a class="nav-link scrollto" href="#item-3-1">Section Item 3.1</a></li>
-				    <li class="nav-item"><a class="nav-link scrollto" href="#item-3-2">Section Item 3.2</a></li>
-				    <li class="nav-item"><a class="nav-link scrollto" href="#item-3-3">Section Item 3.3</a></li>
+				    <li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-3"><span class="theme-icon-holder mr-2"><i class="fas fa-box"></i></span>eliteBadge</a></li>
+					<li class="nav-item"><a class="nav-link scrollto" href="#item-3-1">Properties</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-3-2">Sample</a></li>
 				    <li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-4"><span class="theme-icon-holder mr-2"><i class="fas fa-cogs"></i></span>Integrations</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-4-1">Section Item 4.1</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-4-2">Section Item 4.2</a></li>
@@ -502,24 +501,59 @@
 			    
 			    <article class="docs-article" id="section-3">
 				    <header class="docs-header">
-					    <h1 class="docs-heading">APIs</h1>
+					    <h1 class="docs-heading">eliteBadge</h1>
 					    <section class="docs-intro">
-						    <p>Section intro goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque finibus condimentum nisl id vulputate. Praesent aliquet varius eros interdum suscipit. Donec eu purus sed nibh convallis bibendum quis vitae turpis. Duis vestibulum diam lorem, vitae dapibus nibh facilisis a. Fusce in malesuada odio.</p>
+							<p>eliteBadge lets you add a little badge on the top of another View.</p>
+							<br>
+							<img src="assets/images/elements/eliteBadgeView/01.JPG" class="responsive-small">
 						</section><!--//docs-intro-->
 				    </header>
 				     <section class="docs-section" id="item-3-1">
-						<h2 class="section-heading">Section Item 3.1</h2>
-						<p>Vivamus efficitur fringilla ullamcorper. Cras condimentum condimentum mauris, vitae facilisis leo. Aliquam sagittis purus nisi, at commodo augue convallis id. Sed interdum turpis quis felis bibendum imperdiet. Mauris pellentesque urna eu leo gravida iaculis. In fringilla odio in felis ultricies porttitor. Donec at purus libero. Vestibulum libero orci, commodo nec arcu sit amet, commodo sollicitudin est. Vestibulum ultricies malesuada tempor.</p>
+						<h2 class="section-heading">Properties</h2>
+						<div class="table-responsive my-4">
+							<table class="table table-bordered">
+								<tbody>
+								    <tr>
+									    <th class="theme-bg-light"><a class="theme-link">BadgeWidth</a></th>
+									    <td>Width for presented badge. Default is 25.</td>
+									</tr>
+									<tr>
+									      <th class="theme-bg-light"><a class="theme-link">BadgeHeight</a></th>
+									      <td>Height for presented badge. Default is 25. </td>
+									</tr>
+									
+									<tr>
+									    <th class="theme-bg-light"><a class="theme-link">BadgeRadius</a></th>
+									    <td>Radius for presented badge. Default is 25. </td>
+									</tr>
+
+									<tr>
+									    <th class="theme-bg-light"><a class="theme-link">BadgeContent</a></th>
+									    <td>Badge text content.</td>
+									</tr>
+									
+									<tr>
+									    <th class="theme-bg-light"><a class="theme-link">BadgeDirection</a></th>
+									    <td>Sets the position of the presented badge. Available values are: Top, TopLeft, TopRight ,Right, Left, Bottom, BottomLeft, BottomRight.  </td>
+									</tr>
+
+									<tr>
+									    <th class="theme-bg-light"><a class="theme-link">FontSize</a></th>
+									    <td> Sets the font size used to paint badge text. This value is automatically scaled based on the device screen density. Default is 10.</td>
+									</tr>
+
+									<tr>
+									    <th class="theme-bg-light"><a class="theme-link">Content</a></th>
+									    <td>Sets the presented badge main content View. </td>
+									</tr>
+								</tbody>
+							</table>
+						</div><!--//table-responsive-->
 					</section><!--//section-->
 					
 					<section class="docs-section" id="item-3-2">
-						<h2 class="section-heading">Section Item 3.2</h2>
-						<p>Vivamus efficitur fringilla ullamcorper. Cras condimentum condimentum mauris, vitae facilisis leo. Aliquam sagittis purus nisi, at commodo augue convallis id. Sed interdum turpis quis felis bibendum imperdiet. Mauris pellentesque urna eu leo gravida iaculis. In fringilla odio in felis ultricies porttitor. Donec at purus libero. Vestibulum libero orci, commodo nec arcu sit amet, commodo sollicitudin est. Vestibulum ultricies malesuada tempor.</p>
-					</section><!--//section-->
-					
-					<section class="docs-section" id="item-3-3">
-						<h2 class="section-heading">Section Item 3.3</h2>
-						<p>Vivamus efficitur fringilla ullamcorper. Cras condimentum condimentum mauris, vitae facilisis leo. Aliquam sagittis purus nisi, at commodo augue convallis id. Sed interdum turpis quis felis bibendum imperdiet. Mauris pellentesque urna eu leo gravida iaculis. In fringilla odio in felis ultricies porttitor. Donec at purus libero. Vestibulum libero orci, commodo nec arcu sit amet, commodo sollicitudin est. Vestibulum ultricies malesuada tempor.</p>
+						<h2 class="section-heading">Sample (XAML)</h2>
+						<script src="https://gist.github.com/arqueror/29f263d0d11819d3ebead1b2d475f45f.js"></script>
 					</section><!--//section-->
 			    </article><!--//docs-article-->
 			    
