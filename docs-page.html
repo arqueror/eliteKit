@@ -91,10 +91,10 @@
 				    <li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-3"><span class="theme-icon-holder mr-2"><i class="fas fa-box"></i></span>eliteBadge</a></li>
 					<li class="nav-item"><a class="nav-link scrollto" href="#item-3-1">Properties</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-3-2">Sample</a></li>
-				    <li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-4"><span class="theme-icon-holder mr-2"><i class="fas fa-cogs"></i></span>Integrations</a></li>
-				    <li class="nav-item"><a class="nav-link scrollto" href="#item-4-1">Section Item 4.1</a></li>
-				    <li class="nav-item"><a class="nav-link scrollto" href="#item-4-2">Section Item 4.2</a></li>
-				    <li class="nav-item"><a class="nav-link scrollto" href="#item-4-3">Section Item 4.3</a></li>
+				    <li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-4"><span class="theme-icon-holder mr-2"><i class="fas fa-box"></i></span>eliteButton</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-4-1">Properties</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-4-2">Events</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-4-3">Sample</a></li>
 				    <li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-5"><span class="theme-icon-holder mr-2"><i class="fas fa-tools"></i></span>Utilities</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-5-1">Section Item 5.1</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-5-2">Section Item 5.2</a></li>
@@ -559,24 +559,78 @@
 			    
 			    <article class="docs-article" id="section-4">
 				    <header class="docs-header">
-					    <h1 class="docs-heading">Intergrations</h1>
+					    <h1 class="docs-heading">eliteButton</h1>
 					    <section class="docs-intro">
-						    <p>Section intro goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque finibus condimentum nisl id vulputate. Praesent aliquet varius eros interdum suscipit. Donec eu purus sed nibh convallis bibendum quis vitae turpis. Duis vestibulum diam lorem, vitae dapibus nibh facilisis a. Fusce in malesuada odio.</p>
+							<p> eliteButton lets you use buttons with gradients and optional shadow effects.</p>
+							<br>
+							<img src="assets/images/elements/eliteButton/eliteButton.gif" class="responsive-small">
 						</section><!--//docs-intro-->
 				    </header>
 				     <section class="docs-section" id="item-4-1">
-						<h2 class="section-heading">Section Item 4.1</h2>
-						<p>Vivamus efficitur fringilla ullamcorper. Cras condimentum condimentum mauris, vitae facilisis leo. Aliquam sagittis purus nisi, at commodo augue convallis id. Sed interdum turpis quis felis bibendum imperdiet. Mauris pellentesque urna eu leo gravida iaculis. In fringilla odio in felis ultricies porttitor. Donec at purus libero. Vestibulum libero orci, commodo nec arcu sit amet, commodo sollicitudin est. Vestibulum ultricies malesuada tempor.</p>
-					</section><!--//section-->
+						<h2 class="section-heading">Properties</h2>
+						<div class="table-responsive my-4">
+							<table class="table table-bordered">
+								<tbody>
+								    <tr>
+									    <th class="theme-bg-light"><a class="theme-link">HasShadow</a></th>
+									    <td>Stablishes if button will have a shadow when presented. Default is True.</td>
+									</tr>
+									<tr>
+									      <th class="theme-bg-light"><a class="theme-link">ButtonTitle</a></th>
+									      <td>Button text content </td>
+									</tr>
+									
+									<tr>
+									    <th class="theme-bg-light"><a class="theme-link">BadgeRadius</a></th>
+									    <td>Radius for presented button. Default is 25. </td>
+									</tr>
+
+									<tr>
+									    <th class="theme-bg-light"><a class="theme-link">IsGradient</a></th>
+									    <td>Stablishes if button background collor will be presented using a 2 color gradient. Default is True</td>
+									</tr>
+
+									<tr>
+									    <th class="theme-bg-light"><a class="theme-link">ColorText</a></th>
+									    <td>Sets the button text color.Default is white  </td>
+									</tr>
+									
+									<tr>
+									    <th class="theme-bg-light"><a class="theme-link">ColorPrimary</a></th>
+									    <td>If "IsGradient" is set to true, this property stablishes the first gradient color to use for the button background.Default is #548EC1  </td>
+									</tr>
+
+									<tr>
+									    <th class="theme-bg-light"><a class="theme-link">ColorSecondary</a></th>
+									    <td>If "IsGradient" is set to true, this property stablishes the second gradient color to use for the button background.Default is #254867  </td>
+									</tr>
+
+									<tr>
+									    <th class="theme-bg-light"><a class="theme-link">FontSize</a></th>
+									    <td> Sets the font size used to paint badge text. This value is automatically scaled based on the device screen density. Default is 10.</td>
+									</tr>
+
+									<tr>
+									    <th class="theme-bg-light"><a class="theme-link">FontFamily</a></th>
+									    <td> Sets the font family to be used to paint the the button's text. If specified font is not found, it will use device's default.</td>
+									</tr>
+
+									<tr>
+									    <th class="theme-bg-light"><a class="theme-link">TextAlign</a></th>
+									    <td>Sets the presented badge main content View.Default is center </td>
+									</tr>
+								</tbody>
+							</table>
+						</div><!--//table-responsive-->					</section><!--//section-->
 					
 					<section class="docs-section" id="item-4-2">
-						<h2 class="section-heading">Section Item 4.2</h2>
-						<p>Vivamus efficitur fringilla ullamcorper. Cras condimentum condimentum mauris, vitae facilisis leo. Aliquam sagittis purus nisi, at commodo augue convallis id. Sed interdum turpis quis felis bibendum imperdiet. Mauris pellentesque urna eu leo gravida iaculis. In fringilla odio in felis ultricies porttitor. Donec at purus libero. Vestibulum libero orci, commodo nec arcu sit amet, commodo sollicitudin est. Vestibulum ultricies malesuada tempor.</p>
+						<h2 class="section-heading">Events</h2>
+						<script src="https://gist.github.com/arqueror/861ec8ea925861ac45f2f139d0e16fb1.js"></script>
 					</section><!--//section-->
 					
 					<section class="docs-section" id="item-4-3">
-						<h2 class="section-heading">Section Item 4.3</h2>
-						<p>Vivamus efficitur fringilla ullamcorper. Cras condimentum condimentum mauris, vitae facilisis leo. Aliquam sagittis purus nisi, at commodo augue convallis id. Sed interdum turpis quis felis bibendum imperdiet. Mauris pellentesque urna eu leo gravida iaculis. In fringilla odio in felis ultricies porttitor. Donec at purus libero. Vestibulum libero orci, commodo nec arcu sit amet, commodo sollicitudin est. Vestibulum ultricies malesuada tempor.</p>
+						<h2 class="section-heading">Sample (Xaml)</h2>
+						<script src="https://gist.github.com/arqueror/696f4b83c2886f8740878ffc7fe14fe4.js"></script>
 					</section><!--//section-->
 			    </article><!--//docs-article-->
 			    

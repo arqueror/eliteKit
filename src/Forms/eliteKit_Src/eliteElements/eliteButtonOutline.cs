@@ -26,10 +26,23 @@ namespace eliteKit.eliteElements
         {
             get
             {
-                return (SKTextAlign)GetValue(TextAlignProperty);
+                var align = (SKTextAlign)GetValue(TextAlignProperty);
+
+                if (align == SKTextAlign.Right)
+                {
+                    align = SKTextAlign.Left;
+                }
+
+                if (align == SKTextAlign.Left)
+                {
+                    align = SKTextAlign.Right;
+                }
+
+                return align;
             }
             set
             {
+
                 SetValue(TextAlignProperty, value);
             }
         }
@@ -89,6 +102,27 @@ namespace eliteKit.eliteElements
             }
         }
 
+        public static readonly BindableProperty HasShadowProperty = BindableProperty.Create(nameof(HasShadow), typeof(bool), typeof(eliteButtonOutline), true, BindingMode.TwoWay, propertyChanged: (bindableObject, oldValue, value) =>
+        {
+
+            if (value != null)
+                ((eliteButtonOutline)bindableObject).InvalidateSurface();
+
+        });
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool HasShadow
+        {
+            get
+            {
+                return (bool)GetValue(HasShadowProperty);
+            }
+            set
+            {
+                SetValue(HasShadowProperty, value);
+            }
+        }
 
         public static readonly BindableProperty ColorPrimaryProperty = BindableProperty.Create(nameof(ColorPrimary), typeof(Color), typeof(eliteButtonOutline), coreSettings.ColorPrimary, BindingMode.TwoWay, propertyChanged: (bindableObject, oldValue, value) =>
         {
@@ -163,9 +197,6 @@ namespace eliteKit.eliteElements
                 ((eliteButtonOutline)bindableObject).InvalidateSurface();
 
         });
-        /// <summary>
-        /// 
-        /// </summary>
         public bool IsGradient
         {
             get
@@ -175,6 +206,25 @@ namespace eliteKit.eliteElements
             set
             {
                 SetValue(IsGradientProperty, value);
+            }
+        }
+
+        public static readonly BindableProperty ButtonRadiusProperty = BindableProperty.Create(nameof(ButtonRadius), typeof(float), typeof(eliteButtonOutline), 25f, BindingMode.TwoWay, propertyChanged: (bindableObject, oldValue, value) =>
+        {
+
+            if (value != null)
+                ((eliteButtonOutline)bindableObject).InvalidateSurface();
+
+        });
+        public float ButtonRadius
+        {
+            get
+            {
+                return (float)GetValue(ButtonRadiusProperty);
+            }
+            set
+            {
+                SetValue(ButtonRadiusProperty, value);
             }
         }
 
@@ -212,22 +262,27 @@ namespace eliteKit.eliteElements
             int canvasHeight = eventArgs.Info.Height;
 
             float rectRadius = ((canvasHeight - 20) / 4);
-            float rectRadiusInner = ((canvasHeight - 40) / 4);
+            float rectRadiusInner = ButtonRadius;
 
-            this.roundRectButton = new SKRoundRect(new SKRect(0, 0, canvasWidth, canvasHeight - 20), rectRadius, rectRadius);
+            this.roundRectButton = new SKRoundRect(new SKRect(0, 0, canvasWidth, canvasHeight - 20), ButtonRadius, ButtonRadius);
             this.paintButton = new SKPaint()
             {
                 Color = this.ColorPrimary.ToSKColor(),
-                IsAntialias = true,
-                ImageFilter = SKImageFilter.CreateDropShadow(
+                IsAntialias = true
+            };
+
+
+            if (HasShadow)
+            {
+                paintButton.ImageFilter = SKImageFilter.CreateDropShadow(
                     0,
                     8,
                     0,
-                    this.buttonShadowDrop,
-                    Color.FromRgba(0, 0, 0, this.buttonShadowAlpha).ToSKColor(),
+                    5,
+                    Color.FromRgba(0, 0, 0, 0.4).ToSKColor(),
                     SKDropShadowImageFilterShadowMode.DrawShadowAndForeground
-                )
-            };
+                );
+            }
 
             if (this.IsGradient)
                 this.paintButton.Shader = SKShader.CreateLinearGradient(
@@ -259,7 +314,7 @@ namespace eliteKit.eliteElements
             SKPaint paintButtonTitle = new SKPaint()
             {
                 Color = this.ColorText.ToSKColor(),
-                TextSize = FontSize,
+                TextSize = FontSize * coreSettings.ScalingFactor,
                 IsAntialias = true,
                 TextAlign = TextAlign,
                 Typeface = TextFont

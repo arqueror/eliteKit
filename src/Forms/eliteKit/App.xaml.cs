@@ -10,7 +10,7 @@ namespace eliteKitDevelopment
         {
             InitializeComponent();
 
-            MainPage = new eliteBadgeView();
+            MainPage = new eliteButtonTest();
         }
 
         protected override void OnStart()
