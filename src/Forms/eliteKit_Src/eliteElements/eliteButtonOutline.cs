@@ -262,7 +262,12 @@ namespace eliteKit.eliteElements
             int canvasHeight = eventArgs.Info.Height;
 
             float rectRadius = ((canvasHeight - 20) / 4);
-            float rectRadiusInner = ButtonRadius;
+            float rectRadiusInner = ButtonRadius - 10;
+
+            if(rectRadiusInner < 0)
+            {
+                rectRadiusInner = ButtonRadius;
+            }
 
             this.roundRectButton = new SKRoundRect(new SKRect(0, 0, canvasWidth, canvasHeight - 20), ButtonRadius, ButtonRadius);
             this.paintButton = new SKPaint()

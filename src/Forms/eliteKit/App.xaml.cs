@@ -10,7 +10,7 @@ namespace eliteKitDevelopment
         {
             InitializeComponent();
 
-            MainPage = new eliteButtonTest();
+            MainPage = new eliteButtonOutlineTest();
         }
 
         protected override void OnStart()

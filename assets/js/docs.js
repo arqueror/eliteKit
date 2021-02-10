@@ -15,7 +15,6 @@ $(window).on('load resize', function() {
 
 
 $(document).ready(function() {
-	
 	/* ====== Toggle Sidebar ======= */
 	
 	$('#docs-sidebar-toggler').on('click', function(){
@@ -30,9 +29,50 @@ $(document).ready(function() {
 			  $("#docs-sidebar").removeClass('sidebar-hidden').addClass('sidebar-visible');
 			
 		}
-			
+		
     });
-    
+
+	$('#search-form-main').submit(function(e) { 
+		var $inputs = $('#search-form-main :input');
+   
+		$inputs.each(function() {
+		   e.preventDefault(); // Cancel the submit
+		   return false; // Exit the .each loop
+		});
+   });
+
+	//setup before functions
+	var typingTimer;                //timer identifier
+	var doneTypingInterval = 1500;  //time in ms, 1.5 second for example
+	var $input = $('#searchInput');
+
+	//on keyup, start the countdown
+	$input.on('keyup', function () {
+	clearTimeout(typingTimer);
+	typingTimer = setTimeout(doneTyping, doneTypingInterval);
+	});
+
+	//on keydown, clear the countdown 
+	$input.on('keydown', function () {
+	clearTimeout(typingTimer);
+	});
+
+	//user is "finished typing," do something
+	function doneTyping () {
+		var searchTerm = $('#searchInput').val();
+		if(searchTerm ==="") return;
+		
+		window.find(searchTerm,0,0,0,0,0,1);
+	}
+
+	$('#searchButton').on('click', function(){
+	
+		var searchTerm = $('#searchInput').val();
+		if(searchTerm ==="") return;
+		
+		window.find(searchTerm,0,0,0,0,0,1);
+		
+    });
 
     /* ====== Activate scrollspy menu ===== */
     $('body').scrollspy({target: '#docs-nav', offset: 100});
