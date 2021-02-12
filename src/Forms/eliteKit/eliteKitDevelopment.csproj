@@ -63,12 +63,18 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="appPages\eliteButtonOutlineTest.xaml.cs">
+      <DependentUpon>eliteButtonOutlineTest.xaml</DependentUpon>
+    </Compile>
     <Compile Update="appPages\eliteButtonTest.xaml.cs">
       <DependentUpon>eliteButtonTest.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="appPages\eliteBadge\eliteBadgeView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="appPages\eliteButtonOutlineTest.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="appPages\eliteButtonTest.xaml">
