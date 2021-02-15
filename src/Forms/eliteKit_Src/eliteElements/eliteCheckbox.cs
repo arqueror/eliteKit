@@ -145,6 +145,9 @@ namespace eliteKit.eliteElements
             this.EnableTouchEvents = true;
             this.Touch += this.eliteCheckboxTouched;
             this.colorCurrent = this.ColorUnchecked;
+
+            VerticalOptions = LayoutOptions.Start;
+            HorizontalOptions = LayoutOptions.Center;
         }
 
         protected override void OnPaintSurface(SKPaintSurfaceEventArgs eventArgs)

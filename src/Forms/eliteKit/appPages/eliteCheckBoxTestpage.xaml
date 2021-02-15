@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:eliteKit="clr-namespace:eliteKit.eliteElements;assembly=eliteKit"
+             x:Class="eliteKitDevelopment.appPages.eliteCheckBoxTestPage">
+
+    <ContentPage.Content>
+        <eliteKit:eliteCheckbox
+                x:Name="checkBox"
+                Margin="50"
+                WidthRequest = "50"
+                HeightRequest = "50"
+                HasShadow = "True"
+                IsChecked = "True"
+                ColorIcon = "White"
+                ColorChecked = "#254867"
+                ColorUnchecked = "#548EC1"
+                ColorHighlighted = "DarkBlue" />
+    </ContentPage.Content>
+</ContentPage>
