@@ -6,7 +6,12 @@ SkiaSharp based components for .Net.
   - Create reusable and beautiful controls using SkiaSharp. This is a community effort so all PR's are welcome.
   
 # Supported Platforms
-  - Currently it is only available for Xamarin.Forms (iOS, Android and UWP) but more platforms will be added.
+
+|Platform|Version|
+| ------------------- | :------------------: |
+|Xamarin.iOS|iOS 7+|
+|Xamarin.Android|API 14+|
+|Windows 10 UWP|10.0.16299+|
   
 # Documentation
   - This is an In Progress task in which i will be working on a daily basis. New logic (solving bugs, new features, etc) is being added while i'm writting the docs for each item so probably NuGet won't be updated until i finish with this task (please be patient).You can check the progress at https://elitekit.org
