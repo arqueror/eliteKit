@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Input;
+using eliteKit.eliteCore;
 using eliteKit.eliteEventArgs;
 using eliteKit.Extensions;
 using SkiaSharp;
@@ -132,15 +133,9 @@ namespace eliteKit.eliteElements
                 15,
                 propertyChanged: (bindable, oldValue, newValue) =>
                 {
-                        if (newValue != MarkerRadiusProperty.DefaultValue)
-                        {
-                            ((eliteColorPicker)bindable).MarkerRadius = (int)MarkerRadiusProperty.DefaultValue;
-                            return;
-                        }
-                    
-
+                    (bindable as eliteColorPicker).InvalidateSurface();
                 });
-        public int MarkerRadius
+        private int MarkerRadius
         {
             get
             {
@@ -162,7 +157,7 @@ namespace eliteKit.eliteElements
                   (bindable as eliteColorPicker)._circlePalette.StrokeWidth = (int)newValue / 2;
                   (bindable as eliteColorPicker).InvalidateSurface();
               });
-        public int Radius
+        private int Radius
         {
             get
             {
@@ -236,6 +231,9 @@ namespace eliteKit.eliteElements
             var surface = e.Surface;
             var canvas = surface.Canvas;
             canvas.Clear();
+
+            Radius = (int)((WidthRequest ) + (Math.Pow(HeightRequest, 2)) / (8 * WidthRequest)) ;
+            MarkerRadius = Radius /15;
 
             _center = new SKPoint(info.Rect.MidX, info.Rect.MidY);
             _circlePalette.Shader = SKShader.CreateSweepGradient(_center, _colors, null);

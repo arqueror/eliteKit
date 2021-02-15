@@ -15,6 +15,8 @@ namespace eliteKitDevelopment.appPages
         eliteColorCollection eliteColorCollection;
         eliteCircleImages eliteCircleImages;
 
+       // eliteCircleImages.CircleDiameter
+
         StackLayout stacklayoutContent;
 
         public pageTestChris()
