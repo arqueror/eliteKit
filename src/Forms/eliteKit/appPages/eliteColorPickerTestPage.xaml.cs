@@ -20,10 +20,34 @@ namespace eliteKitDevelopment.appPages
             UpdateLabel();
         }
 
+        void Slider_ValueChanged(System.Object sender, Xamarin.Forms.ValueChangedEventArgs e)
+        {
+            colorPicker.HueValue = (float)e.NewValue;
+
+            UpdateLabel();
+        }
+
+        void Slider_ValueChanged_1(System.Object sender, Xamarin.Forms.ValueChangedEventArgs e)
+        {
+            colorPicker.SaturationValue = (float)e.NewValue;
+            UpdateLabel();
+        }
+
+        void Slider_ValueChanged_2(System.Object sender, Xamarin.Forms.ValueChangedEventArgs e)
+        {
+            colorPicker.LightnessValue = (float)e.NewValue;
+            UpdateLabel();
+        }
+
         void UpdateLabel()
         {
             curentValue.Text = $"HSL(H:{(huePicker.Value.ToString("0.##"))},S: {saturationPicker.Value.ToString("0.##")}, L:{luminosityPicker.Value.ToString("0.##")}, A:{alphaPicker.Value.ToString("0.##")})";
         }
 
+        void alphaPicker_ValueChanged(System.Object sender, Xamarin.Forms.ValueChangedEventArgs e)
+        {
+            colorPicker.AlphaValue = (byte)e.NewValue;
+            UpdateLabel();
+        }
     }
 }
