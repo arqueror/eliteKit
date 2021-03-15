@@ -108,7 +108,17 @@
 					<li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-7"><span class="theme-icon-holder mr-2"><i class="fas fa-box"></i></span>eliteColorPicker</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-7-1">Properties</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-7-2">Events</a></li>
-				    <li class="nav-item"><a class="nav-link scrollto" href="#item-7-3">Sample</a></li>
+					<li class="nav-item"><a class="nav-link scrollto" href="#item-7-3">Sample</a></li>
+					<li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-8"><span class="theme-icon-holder mr-2"><i class="fas fa-box"></i></span>eliteFooter</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-8-1">Properties</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-8-2">Events</a></li>
+					<li class="nav-item"><a class="nav-link scrollto" href="#item-8-3">Sample</a></li>
+					<li class="nav-item"><a class="nav-link scrollto" href="#item-8-4">Animations</a></li>
+					<li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-9"><span class="theme-icon-holder mr-2"><i class="fas fa-box"></i></span>eliteHeader</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-9-1">Properties</a></li>
+				    <li class="nav-item"><a class="nav-link scrollto" href="#item-9-2">Events</a></li>
+					<li class="nav-item"><a class="nav-link scrollto" href="#item-9-3">Sample</a></li>
+					<li class="nav-item"><a class="nav-link scrollto" href="#item-9-4">Animations</a></li>
 				    <!-- <li class="nav-item section-title mt-3"><a class="nav-link scrollto" href="#section-5"><span class="theme-icon-holder mr-2"><i class="fas fa-tools"></i></span>Utilities</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-5-1">Section Item 5.1</a></li>
 				    <li class="nav-item"><a class="nav-link scrollto" href="#item-5-2">Section Item 5.2</a></li>
@@ -431,12 +441,12 @@
 
 									<tr>
 									    <th class="theme-bg-light"><a class="theme-link">ColorUnchecked</a></th>
-									    <td>Background color to be used when IsChecked prop is false. Default is #548EC1</td>
+									    <td>Background color to be used when IsChecked property is false. Default is #548EC1</td>
 									</tr>
 
 									<tr>
 									    <th class="theme-bg-light"><a class="theme-link">ColorChecked</a></th>
-									    <td>Background color to be used when IsChecked prop is true.Default is #254867  </td>
+									    <td>Background color to be used when IsChecked property is true.Default is #254867  </td>
 									</tr>
 									
 									<tr>
@@ -479,7 +489,7 @@
 
 									<tr>
 									    <th class="theme-bg-light"><a class="theme-link">HueValue</a></th>
-									    <td>Stablishes the HUE value (0-360).Default is 3600</td>
+									    <td>Stablishes the HUE value (0-360).Default is 360</td>
 									</tr>
 
 									<tr>
@@ -512,6 +522,133 @@
 					</section><!--//section-->
 			    </article><!--//docs-article-->
 			
+			
+				<article class="docs-article" id="section-8">
+				    <header class="docs-header">
+					    <h1 class="docs-heading">eliteFooter</h1>
+						<p> eliteFooter provides a simple way to create a Footer with customizable shapes.</p>
+						<br>
+						<img src="assets/images/elements/eliteFooter/01.JPG" class="responsive-small">						
+					</section><!--//docs-intro-->
+				    </header>
+				     <section class="docs-section" id="item-8-1">
+						<h2 class="section-heading">Properties</h2>
+						<div class="table-responsive my-4">
+							<table class="table table-bordered">
+								<tbody>
+								    <tr>
+									    <th class="theme-bg-light"><a class="theme-link">CanvasData</a></th>
+									    <td>Provides access to Canvas SKPaintSurfaceEventArgs once it finishes drawing the initial content</td>
+									</tr>
+
+									<tr>
+									    <th class="theme-bg-light"><a class="theme-link">FooterPath</a></th>
+									    <td>Stablishes the path to be used when drawing container shape</td>
+									</tr>
+
+									<tr>
+									    <th class="theme-bg-light"><a class="theme-link">ColorPrimary</a></th>
+									    <td>If "IsGradient" is set to true, this property stablishes the first gradient color to use for the container background.Default is #548EC1  </td>
+									</tr>
+
+									<tr>
+									    <th class="theme-bg-light"><a class="theme-link">ColorSecondary</a></th>
+									    <td>If "IsGradient" is set to true, this property stablishes the second gradient color to use for the container background.Default is #254867  </td>
+									</tr>
+									
+									<tr>
+									    <th class="theme-bg-light"><a class="theme-link">Content</a></th>
+									    <td>Sets the ContentView for the footer's container</td>
+									</tr>
+								</tbody>
+							</table>
+						</div><!--//table-responsive-->
+					</section><!--//section-->
+					
+					<section class="docs-section" id="item-8-2">
+						<h2 class="section-heading">Events</h2>
+						<script src="https://gist.github.com/arqueror/b04ed1f06ffd8b21608199c680f4e55f.js"></script>
+					</section><!--//section-->
+					
+					<section class="docs-section" id="item-8-3">
+						<h2 class="section-heading">Sample</h2>
+						<script src="https://gist.github.com/arqueror/e8c741e1374997c2d5196eaa2217c98d.js"></script>
+					</section><!--//section-->
+
+					<section class="docs-section" id="item-8-4">
+						<h2 class="section-heading">Animations</h2>
+						<p> Creating custom shapes is possible by manipulating FooterPath property manually once FinishedPresenting event is triggered. It is even possible to create animations with the shapes as shown below.</p>
+						<br>
+						<img src="assets/images/elements/eliteFooter/01.gif" class="responsive-small">	
+						<br>
+						<h2 class="section-heading">Sample</h2>
+						<script src="https://gist.github.com/arqueror/110b4d79ae05e038b8c0964ea860ba46.js"></script>
+					</section><!--//section-->
+				</article><!--//docs-article-->
+				
+				<article class="docs-article" id="section-9">
+				    <header class="docs-header">
+					    <h1 class="docs-heading">eliteHeader</h1>
+						<p> eliteHeader provides a simple way to create a Header with customizable shapes.</p>
+						<br>
+						<img src="assets/images/elements/eliteHeader/01.gif" class="responsive-small">						
+					</section><!--//docs-intro-->
+				    </header>
+				     <section class="docs-section" id="item-9-1">
+						<h2 class="section-heading">Properties</h2>
+						<div class="table-responsive my-4">
+							<table class="table table-bordered">
+								<tbody>
+								    <tr>
+									    <th class="theme-bg-light"><a class="theme-link">CanvasData</a></th>
+									    <td>Provides access to Canvas SKPaintSurfaceEventArgs once it finishes drawing the initial content</td>
+									</tr>
+
+									<tr>
+									    <th class="theme-bg-light"><a class="theme-link">HeaderPath</a></th>
+									    <td>Stablishes the path to be used when drawing container shape</td>
+									</tr>
+
+									<tr>
+									    <th class="theme-bg-light"><a class="theme-link">ColorPrimary</a></th>
+									    <td>If "IsGradient" is set to true, this property stablishes the first gradient color to use for the container background.Default is #548EC1  </td>
+									</tr>
+
+									<tr>
+									    <th class="theme-bg-light"><a class="theme-link">ColorSecondary</a></th>
+									    <td>If "IsGradient" is set to true, this property stablishes the second gradient color to use for the container background.Default is #254867  </td>
+									</tr>
+									
+									<tr>
+									    <th class="theme-bg-light"><a class="theme-link">Content</a></th>
+									    <td>Sets the ContentView for the header's container</td>
+									</tr>
+								</tbody>
+							</table>
+						</div><!--//table-responsive-->
+					</section><!--//section-->
+					
+					<section class="docs-section" id="item-9-2">
+						<h2 class="section-heading">Events</h2>
+						<script src="https://gist.github.com/arqueror/3f572263ed8a760c6249e27bf3f40eb1.js"></script>
+					</section><!--//section-->
+					
+					<section class="docs-section" id="item-9-3">
+						<h2 class="section-heading">Sample</h2>
+						<script src="https://gist.github.com/arqueror/f4ba2cb34e535e98282f22f5caf64541.js"></script>
+					</section><!--//section-->
+
+					<section class="docs-section" id="item-9-4">
+						<h2 class="section-heading">Animations</h2>
+						<p> Creating custom shapes is possible by manipulating HeaderPath property manually once FinishedPresenting event is triggered. It is even possible to create animations with the shapes as shown below.</p>
+						<br>
+						<img src="assets/images/elements/eliteHeader/02.gif" class="responsive-small">	
+						<br>
+						<h2 class="section-heading">Sample</h2>
+						<script src="https://gist.github.com/arqueror/110b4d79ae05e038b8c0964ea860ba46.js"></script><script src="https://gist.github.com/arqueror/8a892d40e53b1cc1addf875b12faf018.js"></script></section><!--//section-->
+			    </article><!--//docs-article-->
+
+
 			    <footer class="footer">
 				    <div class="container text-center py-5">
 					    <!--/* This template is free as long as you keep the footer attribution link. If you'd like to use the template without the attribution link, you can buy the commercial license via our website: themes.3rdwavemedia.com Thank you for your support. :) */-->
