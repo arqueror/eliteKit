@@ -12,6 +12,41 @@ namespace eliteKit.eliteElements
     {
         private AbsoluteLayout absoluteLayout;
         private eliteHeaderShape headerShape;
+        public EventHandler FinishedPresenting;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public SKPaintSurfaceEventArgs CanvasData
+        {
+            get
+            {
+                return headerShape?.CanvasData;
+            }
+        }
+
+        public static readonly BindableProperty HeaderPathPathProperty = BindableProperty.Create(nameof(HeaderPath), typeof(SKPath), typeof(eliteHeader), (null), BindingMode.TwoWay, propertyChanged: (bindableObject, oldValue, value) =>
+        {
+            if (value != null)
+            {
+                ((eliteHeader)bindableObject).headerShape.Custompath = (SKPath)value;
+            }
+        });
+        /// <summary>
+        /// 
+        /// </summary>
+        public SKPath HeaderPath
+        {
+            get
+            {
+                return (SKPath)GetValue(HeaderPathPathProperty);
+            }
+            set
+            {
+                SetValue(HeaderPathPathProperty, value);
+            }
+        }
+
 
         public static readonly BindableProperty ColorPrimaryProperty = BindableProperty.Create(nameof(ColorPrimary), typeof(Color), typeof(eliteHeader), coreSettings.ColorPrimary, propertyChanged: (bindableObject, oldValue, value) =>
             {
@@ -112,6 +147,15 @@ namespace eliteKit.eliteElements
             this.absoluteLayout.Children.Add(this.headerView, new Rectangle(.5, 0, 1, 1), AbsoluteLayoutFlags.All);
 
             this.Content = this.absoluteLayout;
+
+            VerticalOptions = LayoutOptions.Start;
+            HorizontalOptions = LayoutOptions.FillAndExpand;
+
+            headerShape.FinishedPresenting += (s, a) =>
+            {
+                FinishedPresenting?.Invoke(this, null);
+                headerShape.FinishedPresenting = null;
+            };
         }
     }
 
@@ -119,6 +163,30 @@ namespace eliteKit.eliteElements
     {
         private Color colorPrimary = Color.FromHex("548EC1");
         private Color colorSecondary = Color.FromHex("254867");
+        private SKPath customPath = null;
+        private SKPaintSurfaceEventArgs canvasData = null;
+        public EventHandler FinishedPresenting;
+
+        public SKPaintSurfaceEventArgs CanvasData
+        {
+            get
+            {
+                return canvasData;
+            }
+        }
+
+        public SKPath Custompath
+        {
+            get
+            {
+                return customPath;
+            }
+            set
+            {
+                customPath = value;
+                this.InvalidateSurface();
+            }
+        }
 
         public Color ColorPrimary
         {
@@ -151,22 +219,22 @@ namespace eliteKit.eliteElements
         public eliteHeaderShape()
         {
             this.EnableTouchEvents = true;
-
-            Device.StartTimer(TimeSpan.FromMilliseconds(60), () =>
+            var fps = TimeSpan.FromSeconds(1.0 / 30.0);
+            Device.StartTimer(fps, () =>
             {
                 if (!this.headerBackgroundGradientOffsetReversed)
                 {
-                    this.headerBackgroundGradientOffset += 0.005f;
+                    this.headerBackgroundGradientOffset += 0.00050f;
 
-                    if ((double)this.headerBackgroundGradientOffset >= 0.4)
+                    if ((double)this.headerBackgroundGradientOffset >= 0.8f)
                     {
                         this.headerBackgroundGradientOffsetReversed = true;
-                        this.headerBackgroundGradientOffset = 0.4f;
+                        this.headerBackgroundGradientOffset = 0.8f;
                     }
                 }
                 else
                 {
-                    this.headerBackgroundGradientOffset -= 0.005f;
+                    this.headerBackgroundGradientOffset -= 0.0009f;
 
                     if ((double)this.headerBackgroundGradientOffset <= 0)
                     {
@@ -183,6 +251,7 @@ namespace eliteKit.eliteElements
         protected override void OnPaintSurface(SKPaintSurfaceEventArgs eventArgs)
         {
             var givenCanvas = eventArgs.Surface.Canvas;
+            canvasData = eventArgs;
             givenCanvas.Clear();
 
             int canvasWidth = eventArgs.Info.Width;
@@ -210,16 +279,28 @@ namespace eliteKit.eliteElements
 
             // Draw the round path and clip it to the background gradient rectangle
             SKPath roundedPath = new SKPath();
-            roundedPath.MoveTo(0, canvasHeight - 100);
-            roundedPath.QuadTo(canvasWidth / 2, canvasHeight + 100, canvasWidth, canvasHeight - 100);
-            roundedPath.LineTo(canvasWidth, canvasHeight);
-            roundedPath.LineTo(0, canvasHeight);
-            roundedPath.LineTo(0, canvasHeight - 100);
+
+            if (Custompath == null)
+            {
+                roundedPath.MoveTo(0, canvasHeight - 100);
+                roundedPath.QuadTo(canvasWidth / 2, canvasHeight + 100, canvasWidth, canvasHeight - 100);
+                roundedPath.LineTo(canvasWidth, canvasHeight);
+                roundedPath.LineTo(0, canvasHeight);
+                roundedPath.LineTo(0, canvasHeight - 100);
+            }
+            else
+            {
+                roundedPath = customPath;
+            }
+
             SKPaint roundedPaint = new SKPaint()
             {
-                BlendMode = SKBlendMode.SrcOut
+                BlendMode = SKBlendMode.SrcOut,
+                IsAntialias = true
             };
+
             givenCanvas.DrawPath(roundedPath, roundedPaint);
+            FinishedPresenting?.Invoke(this, null);
         }
     }
 }

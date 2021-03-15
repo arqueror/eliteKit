@@ -72,6 +72,12 @@
     <Compile Update="appPages\eliteCheckBoxTestpage.xaml.cs">
       <DependentUpon>eliteCheckBoxTestpage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="appPages\eliteFooterTestPage.xaml.cs">
+      <DependentUpon>eliteFooterTestPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="appPages\eliteHeaderTestPage.xaml.cs">
+      <DependentUpon>eliteHeaderTestPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="appPages\eliteBadge\eliteBadgeView.xaml">
@@ -84,6 +90,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="appPages\eliteCheckBoxTestpage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="appPages\eliteHeaderTestPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="appPages\eliteVideo\eliteVideoFixed.xaml">

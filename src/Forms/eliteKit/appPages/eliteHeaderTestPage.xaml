@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:eliteKit="clr-namespace:eliteKit.eliteElements;assembly=eliteKit"
+             x:Class="eliteKitDevelopment.appPages.eliteHeaderTestPage">
+    <eliteKit:eliteHeader
+        x:Name="header"
+        ColorPrimary = "#548EC1"
+        ColorSecondary = "#254867"
+        >
+        <Image x:Name="headerImage"
+                           WidthRequest="75" 
+                           HeightRequest="75"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"/>
+    </eliteKit:eliteHeader>
+</ContentPage>

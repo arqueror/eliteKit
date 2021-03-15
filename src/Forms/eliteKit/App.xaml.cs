@@ -10,7 +10,7 @@ namespace eliteKitDevelopment
         {
             InitializeComponent();
 
-            MainPage = new eliteColorPickerTestPage();
+            MainPage = new eliteHeaderTestPage();
         }
 
         protected override void OnStart()

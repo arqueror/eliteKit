@@ -1,6 +1,7 @@
 ﻿using eliteKit.eliteCore;
 using SkiaSharp;
 using SkiaSharp.Views.Forms;
+using System;
 using Xamarin.Forms;
 
 #pragma warning disable ALL
@@ -11,6 +12,41 @@ namespace eliteKit.eliteElements
     {
         private AbsoluteLayout absoluteLayout;
         private eliteFooterShape footerShape;
+        public EventHandler FinishedPresenting;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public SKPaintSurfaceEventArgs CanvasData
+        {
+            get
+            {
+                return footerShape?.CanvasData;
+            }
+        }
+
+        public static readonly BindableProperty FooterPathProperty = BindableProperty.Create(nameof(FooterPath), typeof(SKPath), typeof(eliteFooter), (null), BindingMode.TwoWay, propertyChanged: (bindableObject, oldValue, value) =>
+        {
+            if (value != null)
+            {
+                ((eliteFooter)bindableObject).footerShape.Custompath = (SKPath)value;
+            }
+        });
+        /// <summary>
+        /// 
+        /// </summary>
+        public SKPath FooterPath
+        {
+            get
+            {
+                return (SKPath)GetValue(FooterPathProperty);
+            }
+            set
+            {
+                SetValue(FooterPathProperty, value);
+            }
+        }
+
 
         public static readonly BindableProperty ColorPrimaryProperty = BindableProperty.Create(nameof(ColorPrimary), typeof(Color), typeof(eliteFooter), coreSettings.ColorPrimary, BindingMode.TwoWay, propertyChanged: (bindableObject, oldValue, value) =>
             {
@@ -109,6 +145,15 @@ namespace eliteKit.eliteElements
             this.absoluteLayout.Children.Add(this.footerView, new Rectangle(.5, 0, 1, 1), AbsoluteLayoutFlags.All);
 
             this.Content = this.absoluteLayout;
+
+            VerticalOptions = LayoutOptions.End;
+            HorizontalOptions = LayoutOptions.FillAndExpand;
+
+            footerShape.FinishedPresenting += (s, a) => 
+            {
+                FinishedPresenting?.Invoke(this, null);
+                footerShape.FinishedPresenting = null; 
+            };
         }
     }
 
@@ -116,9 +161,33 @@ namespace eliteKit.eliteElements
     {
         private int canvasWidth;
         private int canvasHeight;
+        private SKPath customPath = null;
+        private SKPaintSurfaceEventArgs canvasData = null;
+        public EventHandler FinishedPresenting;
 
         private Color colorPrimary = Color.FromHex("548EC1");
         private Color colorSecondary = Color.FromHex("254867");
+
+        public SKPaintSurfaceEventArgs CanvasData
+        {
+            get
+            {
+                return canvasData;
+            }
+        }
+
+        public SKPath Custompath
+        {
+            get
+            {
+                return customPath;
+            }
+            set
+            {
+                customPath = value;
+                this.InvalidateSurface();
+            }
+        }
 
         public Color ColorPrimary
         {
@@ -153,6 +222,7 @@ namespace eliteKit.eliteElements
         protected override void OnPaintSurface(SKPaintSurfaceEventArgs eventArgs)
         {
             var givenCanvas = eventArgs.Surface.Canvas;
+            canvasData = eventArgs;
             givenCanvas.Clear();
 
             this.canvasWidth = eventArgs.Info.Width;
@@ -180,15 +250,29 @@ namespace eliteKit.eliteElements
 
             // Draw the round path and clip it to the background gradient rectangle
             SKPath roundedPath = new SKPath();
-            roundedPath.MoveTo(0, 100);
-            roundedPath.QuadTo(canvasWidth / 2, -100, canvasWidth, 100);
-            roundedPath.LineTo(canvasWidth, 0);
-            roundedPath.LineTo(0, 0);
+
+            if (customPath == null)
+            {
+                roundedPath.MoveTo(0, 100);
+                roundedPath.QuadTo(canvasWidth / 2, -100, canvasWidth, 100);
+                roundedPath.LineTo(canvasWidth, 0);
+                roundedPath.LineTo(0, 0);
+            }
+            else
+            {
+                roundedPath = customPath;
+            }
+
             SKPaint roundedPaint = new SKPaint()
             {
-                BlendMode = SKBlendMode.SrcOut
+                BlendMode = SKBlendMode.SrcOut,
+                IsAntialias = true
             };
+
             givenCanvas.DrawPath(roundedPath, roundedPaint);
+
+
+            FinishedPresenting?.Invoke(this, null);
         }
     }
 }
