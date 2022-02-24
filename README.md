@@ -14,7 +14,7 @@ SkiaSharp based components for .Net.
 |Windows 10 UWP|10.0.16299+|
   
 # Documentation
-  - This is an In Progress task in which i will be working on a daily basis. New logic (solving bugs, new features, etc) is being added while i'm writting the docs for each item so probably NuGet won't be updated until i finish with this task (please be patient).You can check the progress at https://elitekit.org
+  - This is an In Progress task in which i will be working on a daily basis. New logic (solving bugs, new features, etc) is being added while i'm writting the docs for each item so probably NuGet won't be updated until i finish with this task (please be patient).You can check the progress at https://arqueror.github.io/eliteKit/
   
 # License
 Under MIT (see license file)
